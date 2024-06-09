@@ -2,4 +2,28 @@
 title: "quarto-2"
 author: "Jason Fisher"
 format: html
+execute:
+  echo: false
+  message: false
+  warning: false
 ---
+
+```{r}
+#| label: setup
+library(tidyverse)
+library(primer.data)
+library(palmerpenguins)
+
+
+```
+
+```{r}
+#| label: make-plot
+penguins |> 
+  ggplot(aes(x = body_mass_g, y = flipper_length_mm, color = species)) +
+    geom_point() +
+    labs(title = "Penguins Body Mass compared to Flipper Length", 
+         x = "Body Mass", 
+         y = "Flipper Length")
+```
+
